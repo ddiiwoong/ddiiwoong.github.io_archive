@@ -1,0 +1,59 @@
+
+# SEO settings
+title: "ddii"
+title2: "woong" # default: ""
+description: "ddiiwoong tech blog"
+keywords: "Cloud, CNCF, kubernetes, serverless"
+url: http://ddiiwoong.github.io # site url
+baseurl: "" # apply repo name if use it under gh-pages branch
+# baseurl: null # apply null if repo name is something like username.github.io
+
+google_analytics: UA-XXXXX-XX
+repo: http://github.com/heiswayi/thinkspace
+disqus_shortname: "hnbloggithub"
+twitter_username: "HeiswayiNrird"
+comments: true
+
+# Build settings
+permalink   : /:year/:title/
+markdown    : kramdown
+highlighter : rouge
+
+source: ./
+destination: ./_site
+
+# Sass configuration
+sass:
+  sass_dir: assets/scss
+  style: compressed # expanded
+
+# Author settings
+author:
+  name     : "Jinwoong Kim"
+  job      : "Cloud Native Platform Engineer"
+  bio      : "Interested in Kubernetes and Serverless(FaaS), DevOps."
+  thumb    : /images/author.jpg
+  email    : ddiiwoong@gmail.com
+  url      : http://ddiiwoong.github.io
+  github   : http://github.com/ddiiwoong
+  twitter  : http://twitter.com/ddiiwoong
+  facebook : https://www.facebook.com/ddiiwoong
+  linkedin : https://www.linkedin.com/in/jinwoong-kim-6452b369/
+
+# social settings
+og_locale: "ko_KR"
+twitter_card: "summary_large_image"
+twitter_site: "@ddiiwoong"
+
+gems:
+  - bourbon
+  - jekyll-paginate
+
+# navbar pages
+navbar:
+  - slug : about
+    title: About
+  - slug : blog
+    title: Blog
+
+exclude: ["gulp", "node_modules", "bower", "bower_components", "config.rb", "src", "Gemfile", "Gemfile.lock", ".rvmrc", ".rbenv-version", "package.json", "gulpfile.js", "README.md", "Rakefile", "changelog.md"]
