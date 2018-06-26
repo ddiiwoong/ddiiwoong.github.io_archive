@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: http://ddiiwoong.github.io/sitemap.xml

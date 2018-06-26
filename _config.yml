@@ -49,6 +49,9 @@ gems:
   - bourbon
   - jekyll-paginate
 
+# plugins:
+#   - jekyll-sitemap
+
 # navbar pages
 navbar:
   - slug : about
