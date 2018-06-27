@@ -54,8 +54,6 @@ webhook 서버는 API를 준수하는 단순한 http서버.
 ## 튜토리얼
 <https://github.com/morvencao/kube-mutating-webhook-tutorial>  
 
-build and deploy a MutatingAdmissionWebhook that injects a nginx sidecar container into pod prior to persistence of the object.
-
 위 튜토리얼은 object가 생성되기 전에 pod에 nginx sidecar container를 inject하는 MutatingAdmissionWebhook을 배포하는 내용을 담고 있다.
 
 우선 admissionregistration.k8s.io/v1beta1 API를 사용할수 있는 k8s 1.9+ 이상의 클러스터가 필요하다.  
