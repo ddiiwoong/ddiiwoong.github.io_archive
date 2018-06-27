@@ -10,7 +10,7 @@ baseurl: "" # apply repo name if use it under gh-pages branch
 
 google_analytics: UA-XXXXX-XX
 repo: http://github.com/ddiiwoong/ddiiwoong.github.io
-disqus_shortname: ""
+disqus_shortname: "ddiiwoong"
 twitter_username: "ddiiwoong"
 comments: true
 
@@ -41,7 +41,7 @@ author:
   linkedin : https://www.linkedin.com/in/jinwoong-kim-6452b369/
 
 # social settings
-og_locale: "ko_KR"
+og_locale: "en_US"
 twitter_card: "summary_large_image"
 twitter_site: "@ddiiwoong"
 
