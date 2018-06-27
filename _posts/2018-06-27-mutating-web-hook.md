@@ -144,7 +144,7 @@ service "sidecar-injector-webhook-svc" created
 mutatingwebhookconfiguration.admissionregistration.k8s.io "sidecar-injector-webhook-cfg" created
 ```
 
-아래 결과를 보면 하나의 deployment 하나의 container 생성을 요청했지만 nginx sidecar 컨테이너가 injection 된것을 확인할 수 있다.
+webhook deployment 확인
 
 ```
 $ kubectl get pods
@@ -196,7 +196,9 @@ EOF
 deployment.extensions "sleep" created
 ```
 
-sidecar container injection 확인
+sidecar container injection 확인  
+아래 결과를 보면 하나의 deployment 하나의 container 생성을 요청했지만 nginx sidecar 컨테이너가 injection 된것을 확인할 수 있다.
+
 ```
 $ kubectl get pod
 NAME                                                   READY     STATUS    RESTARTS   AGE
