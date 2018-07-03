@@ -62,5 +62,5 @@ Jenkins와 연동하면서 가장 어이없이 헤맨부분은 아래 그림처�
 ![Spinnaker Jenkins](/images/spin_jenkins.png)
 
 
-## 
+오늘은 여기까지만 하고 다음글에서는 배포전략이나 Network Policy 연동등을 상세히 적어볼 예정이다.
 
