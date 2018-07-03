@@ -3,7 +3,7 @@ layout: post
 title: "Mutating Webhook"
 comments: true
 description: "Mutating Webhook에 대해 알아봅니다"
-keywords: "Mutating Webhook, Admission Controller, istio, agones"
+keywords: "Mutating Webhook, k8s, kubernetes, Admission Controller, istio, agones"
 ---
 
 ## Admission controller 확장 - Mutating Webhook
