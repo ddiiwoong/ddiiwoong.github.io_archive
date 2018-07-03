@@ -12,7 +12,7 @@ keywords: "Spinnaker, Kubernetes, k8s, CI/CD, Continuous Delivery"
 
 Spinnaker를 설치하는 내용은 많이 있으니 아래 halyard로 설치하는 포스트를 참고하면 된다.
 
-[Spinnaker 설치하기](https://yunsangjun.github.io/blog/spinnaker/2018/06/03/installing-spinnaker.html)
+[윤상준의 기술 블로그 - Spinnaker 설치하기](https://yunsangjun.github.io/blog/spinnaker/2018/06/03/installing-spinnaker.html)
 
 이번에 이야기하고자 하는 부분은 실제 Spinnaker를 설치하고 난 후 운영상에 고려해야할 부분들과 팁들을 공유해보려고 한다.
 

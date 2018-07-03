@@ -6,7 +6,7 @@ description: "Mutating Webhook에 대해 알아봅니다"
 keywords: "Mutating Webhook, k8s, kubernetes, Admission Controller, istio, agones"
 ---
 
-## Admission controller 확장 - Mutating Webhook
+## Admission controller 확장
 
 Kubernetes(이하 k8s)기반 개발 과제를 수행하다보니 Custom Resource를 사용할수 밖에 없는 상황들이 발생하였다.  
 그런 와중에 istio와 같은 Service Mesh Layer를 리서치하던 중에 튀어나온 MutatingAdmissionWebhook 용어를 이해하기 위에 조사한 내용을 정리해본다.
