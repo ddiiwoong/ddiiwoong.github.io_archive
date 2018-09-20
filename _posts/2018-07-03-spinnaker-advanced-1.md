@@ -27,7 +27,7 @@ Spinnaker를 설치하는 내용은 많이 있으니 아래 halyard로 설치하
 | Spinnaker | Kubernetes | 비고 |
 |:----------:|:----------:|:-----------:|
 | Server Group | [Workloads](https://www.spinnaker.io/reference/providers/kubernetes-v2/#workloads) | [CRD의 경우 별도 Build](https://www.spinnaker.io/guides/developer/crd-extensions/) |
-| Clusters | ReplicaSets |  |
+| Clusters | Logical Server Group	 |  |
 | Load Balancer | Services | LoadBalancer(k8s) 미지원 |
 | Firewall | NetworkPolicies |  |
 
