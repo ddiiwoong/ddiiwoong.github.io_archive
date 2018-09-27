@@ -47,9 +47,8 @@ keywords: "Spinnaker, Kubernetes, k8s, CI/CD, Continuous Delivery, Continuous De
 |기능들이 모두 플러그인 형태|CI tool이 아님(CI tools이 백엔드로)|
 
 ## Kubernetes vs Spinnaker
-|||
-|:----------:|:----------:|
 |Kubernetes|Spinnaker|
+|:----------:|:----------:|
 |리소스 사용 제한|정의한 퍼센트로 rollout|
 |slow rollout|각 단계별 검증 가능|
 |High rollback cost|Fast rollbacks|
