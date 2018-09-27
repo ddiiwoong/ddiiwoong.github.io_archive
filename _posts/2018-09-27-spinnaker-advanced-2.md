@@ -47,6 +47,7 @@ keywords: "Spinnaker, Kubernetes, k8s, CI/CD, Continuous Delivery, Continuous De
 |기능들이 모두 플러그인 형태|CI tool이 아님(CI tools이 백엔드로)|
 
 ## Kubernetes vs Spinnaker
+
 |Kubernetes|Spinnaker|
 |:----------:|:----------:|
 |리소스 사용 제한|정의한 퍼센트로 rollout|
@@ -60,7 +61,7 @@ keywords: "Spinnaker, Kubernetes, k8s, CI/CD, Continuous Delivery, Continuous De
 Spinnaker를 사용할때 기본적으로 아래와 같은 파이프라인으로 구성한다.  
 수동으로 UI나 API로 트리거링할수 있고, 자동으로 Jenkins 등과 트리거 연동하여 빌드완료시 배포되도록 할수 있다.
 
-![spinnaker-pipeline](../images/spinnaker-pipeline.png)
+![spinnaker-pipeline](/images/spinnaker-pipeline.png)
 
 ## Deployment Strategies
 Spinnaker에서의 배포전략은 다음과 같이 제공된다.
