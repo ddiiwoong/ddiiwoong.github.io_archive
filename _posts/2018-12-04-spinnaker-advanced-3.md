@@ -300,7 +300,7 @@ Stage별로 살펴 보기전에
     * Deploy Canary - yaml manifest로 Canary 버전을 배포한다. Replicas는 1로 설정하였고 배포될 Account(K8s Cluster)를 지정한다. 
     * Deploy Baseline - yaml manifest로 Baseline 버전을 배포한다. 위와 동일하게 Replicas는 1로 설정하였고 배포될 Account(K8s Cluster)를 지정한다. 
 4. 4th Stage
-    * Canary Analysis - 중요한 Canary 분석 단계로 아래와 같이 설정을 확인한다. Prerequisite에서 설정한 Config(`kayenta-test`)를 선택하고 짧은 분석을 위해 1분(60초) 간격으로 3번 수행을 하도록 한다. Filter Template에서 지정한 version(`version="${scope}"`) 분석을 위해 Baseline, Canary 설정을 하고 Location은 Namespaces로 생각하면 된다. ![aca config](/images/aca_config.png)
+    * Canary Analysis - 중요한 Canary 분석 단계로 아래와 같이 설정을 확인한다. Prerequisite에서 설정한 Config(`kayenta-test`)를 선택하고 짧은 분석을 위해 1분(60초) 간격으로 3번 수행을 하도록 한다.   Filter Template에서 지정한 version(`version="${scope}"`) 분석을 위해 Baseline, Canary 설정을 하고 Location은 Namespaces로 생각하면 된다. ![aca config](/images/aca_config.png)
 5. 5th Stage
     * Deploy to Production - Canary 분석이 통과하였을 경우 운영에 배포
     * Delete Canary, Delete Baseline - 성공이던 실패이던 Canary, Baseline 배포본을 삭제 
@@ -308,7 +308,7 @@ Stage별로 살펴 보기전에
     * Successful deployment - Canary 분석이 통과하였을 경우 최종 완료 표기하는 단계
 
 설정이 마무리가 되면 저장을 하고 Canary 분석에 들어간다. 
-최초에 `successRate`을 70으로 배포했다면 그 이하로 설정했을 경우에는  
+최초에 `successRate`을 70으로 배포했다면 그 이하로 설정했을 경우에는 아래와 같이 Score 0점으로 배포가 실패하고 Pipeline이 종료된다.   
 
 ![fail](/images/canary_fail.png)  
 
@@ -318,13 +318,6 @@ Stage별로 살펴 보기전에
 
 
 ## 정리
-간단하게 Spinnaker 와 Prometheus Metric을 활용하여 Kayenta 기반 Canary 배포를 해봤다. 현재 Spinnaker 1.10에서 istio가 지원된다고 하니 다시 한번 확인해보고 istio 기반 canary 배포와 함께 사용하는 방법을 더 연구해봐야 할 것 같다. 12월 11일 부터 Kubecon이 열리는데 어떠한 새로운 프로젝트와 기능들이 나올지 기대가 된다. AWS re:invent 끝나면 항상 현자타임이 길게 왔었는데 이번에 Kubecon보고 힘을 내야겠다. 오픈소스로 먹고사시는 분들 다들 힘냈으면 좋겠다.
+간단하게 Spinnaker 와 Prometheus Metric을 활용하여 Kayenta 기반 Canary 배포를 해봤다. 현재 Spinnaker 1.10에서 istio가 지원된다고 하니 다시 한번 확인하고 istio 기반 canary 배포와 함께 사용하는 방법을 더 연구해봐야 할 것 같다.  
 
-
-
-
-
-
-
-
-
+올해 AWS re:invent 끝나고 작년보다 큰 현자타임이 왔다. 오픈소스로 먹고사는 사람들의 기분은 다 비슷할거 같다고 생각이 든다. 12월 11일 부터 Kubecon이 열린다고 하니 Kubernetes 관련한 새로운 프로젝트와 기능들에 집중해서 남들보다 한발 나아가야하지 않을까? 오픈소스로 먹고사시는 분들 다들 힘냈으면 좋겠다.
