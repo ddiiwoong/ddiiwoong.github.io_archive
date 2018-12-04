@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "Spinnaker on Kubernetes #3"
+title: "Spinnaker on Kubernetes #3 (Kayenta)"
 comments: true
-description: "Spinnaker에 대해 알아봅니다 #3"
+description: "Spinnaker에 대해 알아봅니다 #3 (Kayenta)"
 keywords: "Spinnaker, Kubernetes, k8s, CI/CD, Continuous Delivery, Continuous Deployment, Pipeline, Canary analysis, Canary, kayenta, Automated Canary Service"
 ---
 
-# Spinnaker on Kubernetes #3 (advanced)
+# Spinnaker on Kubernetes #3 (Kayenta)
 
 3번째 포스팅이다.
 
