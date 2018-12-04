@@ -188,7 +188,7 @@ spin-rosco-f6f845d49-btjnd          1/1       Running   0          6d
 
 ## simple deploy pipeline 추가
 
-<https://cloud.google.com/solutions/automated-canary-analysis-kubernetes-engine-spinnaker> 가이드 처럼 구성해봐도 되나 stackdriver를 써야하고 prometheus metric을 활용한 가이드가 필요해서 적어보고자 한다.
+<https://cloud.google.com/solutions/automated-canary-analysis-kubernetes-engine-spinnaker> 가이드 처럼 구성해봐도 되나 `stackdriver`를 써야하고 `prometheus metric`을 활용한 가이드가 필요해서 적어보고자 한다.
 
 새로 파이프라인을 추가한 다음 
 
