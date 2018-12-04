@@ -6,7 +6,7 @@ description: "Spinnaker에 대해 알아봅니다 #3 (Kayenta)"
 keywords: "Spinnaker, Kubernetes, k8s, CI/CD, Continuous Delivery, Continuous Deployment, Pipeline, Canary analysis, Canary, kayenta, Automated Canary Service"
 ---
 
-# Spinnaker on Kubernetes #3 (Kayenta)
+# Kayenta - Automated Canary Analysis (ACA)
 
 3번째 포스팅이다.
 
