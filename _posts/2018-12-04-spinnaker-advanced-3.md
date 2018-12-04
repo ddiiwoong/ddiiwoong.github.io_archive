@@ -43,7 +43,7 @@ Spinnaker에서는 기본적으로 3가지 Cluster(Logical Application Group)를
 수동으로 계산된 여러가지 지표를 가중치 기반으로 점수를 내리고 원하는 점수에 도달하면 배포하는 자동화된 방식이다.
 
 ## Requirements
-* spinnkaer cluster - 1.8+ (1.9.3 이상 추천)
+* spinnaker cluster - 1.8+ (1.9.3 이상 추천)
 * halyard - 1.0+
 * kubernetes cluster - 1.9+
 * metric services - datadog, prometheus, stackdriver, signalfx
@@ -51,7 +51,7 @@ Spinnaker에서는 기본적으로 3가지 Cluster(Logical Application Group)를
 
 ## Kayenta Service 추가하기
 이번 포스팅에서는 아래 환경으로 작성하였다.
-* spinnkaer cluster - 1.10.5
+* spinnaker cluster - 1.10.5
 * halyard - 1.11
 * kubernetes cluster - 1.9.7
 * metric services - prometheus
