@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "New Year’s Resolution"
+title: "2018 Retrospection"
 comments: true
 description: "18년도를 돌아보며..."
-keywords: "retrospect, planning"
+keywords: "Retrospection, Planning"
 ---
 
 한해가 또 훅 가벼렸다. 18년도 retrospect 시작한다.
