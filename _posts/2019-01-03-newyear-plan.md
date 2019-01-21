@@ -15,7 +15,7 @@ keywords: "Retrospection, Planning"
 
 * Tech.
   * Public Cloud : AWS, DigitalOcean, IBM Cloud, GCP, Azure, nCloud
-  * Provisioning : Harbor, Ansible, Portus, Clair, Kubicorn, Terraform, Vaut
+  * Provisioning : Harbor, Ansible, Portus, Clair, Kubicorn, Terraform, Vault
   * Runtime : Rook, Minio, OpenEBS, Calico, REX-ray, WeaveNet, Cilium
   * Orchestration : Kubernetes, Envoy, etcd, gRPC, Kong, HAProxy, Istio, Kong, NGINX, Traefik
   * App : NATS, Helm, Kafka, Docker-compose, Draft, Gitlab, minikube, Operator, Jenkins, JenkisX, Packer, RabbitMQ, Spinnaker
