@@ -9,12 +9,12 @@ keywords: "knative, Kubernetes, k8s, knative 설치, knative 구성, knctl"
 # Knative CLI - knctl
 
 ## knctl
-`knctl` 은 Knative CLI 툴로 간단하게 knative cluster를 만들고 knative를 추상화해서 앱까지 배포할 수 있는 오픈소스이다. 
+`knctl` 은 Knative CLI 툴로 간단하게 knative cluster를 만들고 Knative를 추상화해서 앱까지 배포할 수 있는 오픈소스이다. 
 
 #### 참고
-https://github.com/cppforlife/knctl  
-https://developer.ibm.com/blogs/2018/11/12/knctl-a-simpler-way-to-work-with-knative/
-https://starkandwayne.com/blog/public-traffic-into-knative-on-gke/
+* https://github.com/cppforlife/knctl  
+* https://developer.ibm.com/blogs/2018/11/12/knctl-a-simpler-way-to-work-with-knative/  
+* https://starkandwayne.com/blog/public-traffic-into-knative-on-gke/
 
 ### Knative 다시 살펴보기
 
