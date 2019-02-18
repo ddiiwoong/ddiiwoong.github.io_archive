@@ -8,9 +8,17 @@ keywords: "knative, Kubernetes, k8s, knative 설치, knative 구성, knctl"
 
 # Knative CLI - knctl
 
-## Knative 다시 살펴보기
+## knctl
+`knctl` 은 Knative CLI 툴로 간단하게 knative cluster를 만들고 knative를 추상화해서 앱까지 배포할 수 있는 오픈소스이다. 
 
-앞에서도 이야기 (https://ddiiwoong.github.io/2018/knative/) 했지만 기존 FaaS(AWS Lambda, Google Cloud Funtions, Azure Function) 과는 다른 개념으로 받아들어야 한다.
+#### 참고
+https://github.com/cppforlife/knctl  
+https://developer.ibm.com/blogs/2018/11/12/knctl-a-simpler-way-to-work-with-knative/
+https://starkandwayne.com/blog/public-traffic-into-knative-on-gke/
+
+### Knative 다시 살펴보기
+
+[앞선 포스팅에서도 이야기](https://ddiiwoong.github.io/2018/knative/) 했지만 기존 FaaS(AWS Lambda, Google Cloud Funtions, Azure Function) 과는 다른 Serverless 개념으로 받아들어야 한다.
 
 다시 한번 특징을 나열해보면 아래와 같다.
 
@@ -38,7 +46,7 @@ keywords: "knative, Kubernetes, k8s, knative 설치, knative 구성, knctl"
 ### Configuration
 `Configuration`은 최신의 `Revision`상태를 설명하고, 생성하고, 원하는 상태가 갱신될때 `Revision`의 상태를 추적한다. `Configuration`은 `Build`를 참조하여 소스(git repo 또는 archive)를 컨테이너로 변환하는 방법에 대한 가이드가 포함되어 있거나 단순히 컨테이너 이미지 및 수정에서 필요한 메타 데이터 만 참조 할 수 있다. 
 
-## Product Integration
+### Product Integration
 
 2019년 2월 현재 0.3이 릴리스되고 있고 벌써 여러 제품에 통합이 되고 있다. 
 
@@ -55,14 +63,9 @@ https://triggermesh.com/serverless_management_platform/
 
 Pivotal Function Service (PFS), Google GKE SERVERLESS ADD-ON 등은 아직 early access 신청만 받고 있는 상태이다.
 
-오늘은 간단하게 배포할수 있는 툴과 팁들을 소개하고자 한다.
+오늘은 간단하게 배포할수 있는 툴 knctl과 관련 use-case를 소개하고자 한다.
 
-## knctl
-Knative CLI 툴로 간단하게 knative cluster를 만들고 knative를 추상화해서 앱까지 배포할 수 있는 오픈소스이다. 
-
-#### 참고
-https://github.com/cppforlife/knctl  
-https://developer.ibm.com/blogs/2018/11/12/knctl-a-simpler-way-to-work-with-knative/https://starkandwayne.com/blog/public-traffic-into-knative-on-gke/
+### Kubernetes Cluster 생성
 
 일단 GKE Free tier에서 Cluster를 하나 생성하자.
 
@@ -92,7 +95,7 @@ Your active configuration is: [cloudshell-4728]
 clusterrolebinding.rbac.authorization.k8s.io "cluster-admin-binding" created
 ```
 
-### knctl 설치
+## knctl 설치
 
 이번 포스팅에서는 Mac OS 설치 기준으로 작성하였다.
 
@@ -109,7 +112,7 @@ $ mv knctl-* /usr/local/bin/knctl
 $ chmod +x /usr/local/bin/knctl
 ```
 
-## Knative 배포
+## knctl 로 Knative 배포
 
 설치한 knctl로 Knative 배포를 진행한다. 설치되는 내용을 지켜보고 있으면 `istio`를 먼저 배포하고 그다음에 `Knative`를 설치하는 것을 확인할 수 있다. 배포되는 모듈들의 상태를 하나하나 체크해서 배포하기 때문에 설치상에 과정들을 확인할 수 있다. 
 
@@ -179,6 +182,8 @@ knative-ingressgateway  34.***.***.248  80     6h
 Succeeded
 ```
 
+## Knative custom domain 연결
+
 Domain이 별도로 없기 때문에 Knative는 내부적으로 example.com이라고 하는 기본 domain을 사용한다. 그래서 실제 `knctl curl` 명령은 내부적으로 `hello.hello-test.example.com`으로 curl을 실행하게 되고 해당 결과를 아래와 같이 확인할 수 있다.
 
 ```
@@ -232,6 +237,8 @@ Succeeded
 $ curl http://hello.hello-test.knative.skcloud.io/
 Hello Rev1!
 ```
+
+## revision 추가
 
 이번에는 revision을 추가해보자. TARGET environment 변수를 `Rev2`로 수정하고 배포를 한다.
 기존 hello-00002 revision이 최신 revision으로 갱신되어 배포가 되는것을 확인할 수 있다.
@@ -287,7 +294,9 @@ hello-00001  previous  -            1 OK / 4    4h   -
 Succeeded
 ```
 
-Blue-Green Deploy는 knctl rollout 명령으로 수행할수 있다.  
+## Blue/Green 배포
+
+Blue/Green Deploy는 knctl rollout 명령으로 수행할수 있다.  
 rollout 할때 `--managed-route=false` 옵션을 줘야 특정 비율로 routing이 가능하다.  
 아래 예시는 TARGET environment 변수를 `blue`, `green`으로 바꿔가면서 배포를 진행하였다.
 ```
