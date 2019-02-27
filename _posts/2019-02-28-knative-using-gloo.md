@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Knative Install using Gloo"
+title: "Knative with Gloo"
 comments: true
-description: "Istio에만 종속되어있는 Knative가 아닌 경량화된 Ingress 오픈소스 Gloo를 활용한 Knative 설치 및 활용"
+description: "Istio에 종속되어있는 Knative가 아닌 경량화된 Ingress 오픈소스 Gloo를 활용한 Knative 설치 및 활용"
 keywords: "Knative, Gloo, Istio, kubernetes, Serverless"
 ---
 
@@ -11,8 +11,8 @@ Knative는 앞에서도 몇번 언급하였지만 기본적으로 `Routing`을 �
 
 ## Service 
 ### Kubernetes
-![ingress](http://tech.cloudz-labs.io/posts/kubernetes/ingress/ingress.png)
-이미지출처 : http://tech.cloudz-labs.io/posts/kubernetes/ingress/
+![ingress](https://www.nginx.com/wp-content/uploads/2017/09/NGINX-Plus-Features-Kubernetes-Ingress-Controller-644x372@2x.png)  
+이미지출처 : https://www.nginx.com/blog/announcing-nginx-ingress-controller-for-kubernetes-release-1-3-0/
 
 
 Kubernetes에서는 일반적으로 서비스 접속을 구현하게 되면 기본적으로 Pod와 Service를 생성하고 Ingress를 사용하여 클러스터 내부로 들어오는 트래픽을 처리하게 된다.
