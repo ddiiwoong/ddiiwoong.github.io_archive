@@ -9,20 +9,25 @@ keywords: "Knative, Gloo, Istio, kubernetes, Serverless"
 ## Knative Routing
 Knative는 앞에서도 몇번 언급하였지만 기본적으로 `Routing`을 사용하여 외부에 노출할 서비스들에 대한 HTTP Endpoint를 제공한다. 어떻게 보면 기본적으로 API Gateway 역할을 하기도 하고 Ingress 역할을 하기도 한다. 보통 Service mesh인 `Istio`를 사용하여 ingress를 구현하는것이 당연하다고 생각하기도 하지만 Istio의 모든 기능이 Knative에 필요하지는 않고 설치되는것 자체가 리소스 소모가 꽤 된다는것은 설치 해본사람은 알고 있을것이다. 
 
-## Service
+## Service 
+### Kubernetes
 ![ingress](http://tech.cloudz-labs.io/posts/kubernetes/ingress/ingress.png)
 이미지출처 : http://tech.cloudz-labs.io/posts/kubernetes/ingress/
 
+
 Kubernetes에서는 일반적으로 서비스 접속을 구현하게 되면 기본적으로 Pod와 Service를 생성하고 Ingress를 사용하여 클러스터 내부로 들어오는 트래픽을 처리하게 된다.
 
+### Knative
 ![Serving](https://i1.wp.com/blog.openshift.com/wp-content/uploads/intro.png?w=499&ssl=1)  
 이미지출처 : https://blog.openshift.com/knative-serving-your-serverless-services/
 
-Knative에서는 앞선 Knative 관련 포스팅에서도 설명했듯이 `Automatic scaling up and down to zero` 특성을 가지고 있기에 Pod가 최초 실행되어있지 않은 상태에서 트래픽이 들어오게 되면 [Knative Serving Activator](https://github.com/knative/serving/blob/master/docs/scaling/DEVELOPMENT.md)에 의해서 Pod가 없는 Revision을 확인하고 Cold Start 형태로 프로비저닝하게 된다. 나는 이게 진정한 서버리스라고 생각하지만 주변에 반박하시는 분들도 있다.
+
+Knative에서는 앞선 Knative 관련 포스팅에서도 설명했듯이 `Automatic scaling up and down to zero` 특성을 가지고 있기에 Pod가 최초 실행되어있지 않은 상태에서 트래픽이 들어오게 되면 [Knative Serving Activator](https://github.com/knative/serving/blob/master/docs/scaling/DEVELOPMENT.md)에 의해서 Pod가 없는 Revision을 확인하고 Cold Start 형태로 프로비저닝하게 된다. 나는 이게 진정한 서버리스라고 생각하지만 주변에 반박하시는 분들도 간혹 있다.
 
 이후 Pod가 Warm 상태가 되고 나면 Istio Route(Ingress Gateway)를 통해 트래픽이 Pod로 전달되어 통신이 이뤄지게 된다.
 
 현재 Knative는 현재 Ingress Gateway 의존성을 가지고 있고 Envoy기반 Service Mesh인 `Istio`, Envoy기반 API Gateway인 `Gloo` 두가지 옵션으로 Ingress 구현이 가능하다.
+
 
 ## Istio 
 Knative는 기본적으로 Ingress Gateway기능을 탑재하고 있는데 이는 Istio의 기능중 하나다.  
@@ -38,7 +43,9 @@ Istio는 48개의 `CRDs`(CustomResourceDefinition objects)를 가지고 있는�
 ## Gloo
 [Gloo](https://gloo.solo.io/)는 Kubernetes-native ingress controller이자 [Next Generation API Gateway](https://medium.com/solo-io/announcing-gloo-the-function-gateway-3f0860ef6600) 를 위해 시작된 프로젝트이다. 실제 Redhat에서 Openshift기반 Microservice 및 Istio 개발업무를 하다가 최근에 solo.io의 CTO로 이직한 [Christian Posta](https://blog.christianposta.com/)가 밀고 있는 프로젝트이기도 하다. 
 
+
 ![gloo](https://cdn-images-1.medium.com/max/1600/0*Z0Jb5DJFOyeY91sN.)
+
 
 `Gloo`는 Envoy Proxy 기반으로 동작하며 
 기존 Legacy부터 Container서비스, FaaS(AWS Lambda, Azure Functions, GCP Functions)영역의 Application들을 REST, gRPC, SOAP, Web Socker기반으로 Aggregate 해서 Function 기반 추상화를 구현해 주는 오픈소스 프로젝트라 정의 할 수 있다. 
@@ -85,7 +92,7 @@ Please see visit the Gloo Installation guides for more:  https://gloo.solo.io/in
 
 PATH 등록
 ```
-export PATH=$HOME/.gloo/bin:$PATH
+$ export PATH=$HOME/.gloo/bin:$PATH
 ```
 
 gloo CLI 확인
@@ -96,7 +103,7 @@ glooctl version 0.8.1
 
 GCP 무료플랜으로 3-node 클러스터를 생성한다.
 ```
-gcloud container clusters create gloo \
+$ gcloud container clusters create gloo \
   --region=asia-east1-a \
   --cluster-version=latest \
   --machine-type=n1-standard-2 \
@@ -190,14 +197,14 @@ http://34.**.**.54:80
 
 위에서 얻은 두가지 정보로 생성된 app을 테스트한다. Cold Start(default timeout 5분) 때문에 응답이 늦어질 수도 있지만 잠시 기다리면 응답을 확인할 수 있다.
 ```
-$ curl -H "Host: helloworld-go.default.example.com" http://34.80.55.54:80
+$ curl -H "Host: helloworld-go.default.example.com" http://34.**.**.54:80
 Hello Go Sample v1!
 ```
 
 물론 `Revision`이나 `Route`를 활용하여 Knative의 기능에 대해서도 확인이 가능하다.
 
 ## 정리
-Knative ClusterIngress CRD를 기반으로 동작하는 Istio의 대안으로서 가능성을 보여주고 있다. 이외에도 The Service Mesh Orchestration Platform `SuperGloo`, Debugger for microservices `Squash` 등 다양한 Mesh Layer기반의 오픈소스들을 확인할수 있다. 또다른 그저 스쳐지나갈수도 있는 오픈소스일수도 있겠지만 현재 개발되는 로드맵(https://www.solo.io/)을 보면 Knative가 고도화되는 여정에 같이 가는 모습을 확인할 수 있다. 
+Gloo는 Knative ClusterIngress CRD를 기반으로 동작하는 Istio의 대안으로서 가능성을 보여주고 있다. 이외에도 The Service Mesh Orchestration Platform `SuperGloo`, Debugger for microservices `Squash` 등 다양한 Mesh Layer기반의 오픈소스들을 확인할수 있다. 또다른 스쳐지나갈수도 있는 오픈소스일수도 있겠지만 현재 개발되는 로드맵(https://www.solo.io/)을 보면 Knative가 고도화되는 여정에 같이 가는 모습을 확인할 수 있다. 
 
 next-generation API Gateway로서 다양한 프로토콜을 지원하기 때문에 (HTTP1, HTTP2, gRPC, REST/OpenAPISpec, SOAP, WebSockets, Lambda/Cloud Functions) 더욱더 Microservices 및 Serverless Workload를 수행하기에 더욱 적합한 오픈소스로 보인다. 
 
