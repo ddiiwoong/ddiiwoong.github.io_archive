@@ -12,6 +12,8 @@ google_analytics: UA-XXXXX-XX
 repo: http://github.com/ddiiwoong/ddiiwoong.github.io
 disqus_url: "ddiiwoong"
 disqus_id: "ddiiwoong"
+disqus_shortname: "ddiiwoong"
+
 
 twitter_username: "ddiiwoong"
 comments: true
